@@ -1,0 +1,20 @@
+version: 2
+
+sources:
+  - name: nwind
+    database: fea_academy
+    schema: northwind
+    tables:
+      - name: orders
+        description: Table from Northwind ERP data about orders, grain as a single order.
+        columns:
+          - name: order_id
+            description: primary key from orders
+            tests:
+              - unique
+              - not_null
+          - name: customer_id
+            description: foreign key from customers related with the order
+                    
+      - name: order_details
+        description: Table from Northwind ERP data about the details of each order, the grain is each product that is on a single order.
